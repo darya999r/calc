@@ -1,7 +1,7 @@
 from datetime import datetime as dt
 
 def datetime (data,res):
-    time = dt.now().strftime('%d/%M/%Y %H:%M')
+    time = dt.now().strftime('%d/%m/%Y %H:%M')
     with open ('log.csv', 'a') as file:
         file.write('DateTime:{}, Calculation:{}, Result:{}\n'.format(time,data,res))
 

@@ -51,7 +51,8 @@ def opz(expression):
                 while (len(oper_stack) > 0 and token_tmp != '('):
                     if (priority(i) <= priority(token_tmp)):
                         result.append(oper_stack.pop())
-                        token_tmp = oper_stack[len(oper_stack) - 1]
+                        if len(oper_stack) > 0:
+                            token_tmp = oper_stack[len(oper_stack) - 1]
                     else:
                         break     
             oper_stack.append(i)
@@ -68,7 +69,6 @@ def opz(expression):
                     oper_stack.pop()
     while len(oper_stack) > 0:
         result.append(oper_stack.pop())
-    print(result)
     return result
 
 def count_opz(list):
@@ -90,3 +90,4 @@ def count_opz(list):
             elif item == "^":
                 final_result.append(right_oper ** left_oper)
     return round(final_result[0], 5)
+
